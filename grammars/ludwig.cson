@@ -1,0 +1,38 @@
+'scopeName': 'source.clef'
+'name': 'Ludwig'
+'fileTypes': [
+  'clef'
+]
+'patterns': [
+    {
+      'match': '^\([A-Za-z0-9]\|-\)*:'
+      'name': 'entity.name.function'
+    }
+    {
+      'begin': '#'
+      'end': '\\n'
+      'name': 'comment.line.number-sign'
+    }
+    {
+      'match': '^\\s*import'
+      'name': 'keyword.other'
+    }
+    {
+      'match': '\(\\s\|^-\|\{\|,)(ami|aws-az|az-member|connection-drain-time|cross_zone|description|dns|dns-hosted-zone|dns-record|health-check|health-check-interval|health-check-target|health-check-timeout|healthy-threshold|in-ports|key|listeners|load-balancers|network|out-ports|part|permissions|pmc|region|role|scale-ceiling|scale-floor|scale-instance|scale-target|scaling|section|sections|security-groups|tones|unhealthy-threshold|venues|version)(?=\\s\|,\|:)'
+      'name': 'variable.language'
+    }
+    {
+      'match': '\\b(t1\.micro|m1\.small|m3\.medium|m3\.large|m3\.xlarge|m3\.2xlarge|c3\.large|c3\.xlarge|c3\.2xlarge|c3\.4xlarge|c3\.8xlarge|g2\.2xlarge|r3\.large|r3\.xlarge|r3\.2xlarge|r3\.4xlarge|r3\.8xlarge|i2\.xlarge|i2\.2xlarge|i2\.4xlarge|i2\.8xlarge|hs1\.8xlarge)\\b'
+      'name': 'constant.language'
+    }
+    {
+      'match': '\\b(us-east-1|us-west-1|us-west-2|eu-west-1|ap-southeast-1|ap-southeast-2|ap-northeast-1|sa-east-1)\\b'
+      'name': 'constant.other'
+    }
+    {
+      'match': '\\b(true|false)\\b'
+      'name': 'constant.language'
+    }
+]
+
+
