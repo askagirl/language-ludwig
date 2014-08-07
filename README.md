@@ -1,5 +1,5 @@
 # ludwig-syntax package
 
-A short description of your package.
+A syntax highlighter for the Ludwig language.
 
-![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![ludwig-syntax](https://dl.dropboxusercontent.com/spa/u0s6617yxinm2ca/th9ey989.png)
