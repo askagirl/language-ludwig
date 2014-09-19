@@ -1,12 +1,23 @@
 'scopeName': 'source.clef'
 'name': 'Ludwig'
 'fileTypes': [
-  'clef'
+  'clef',
+  'lu',
+  'lw',
+  'ludwig'
 ]
 'patterns': [
     {
-      'match': '^\([A-Za-z0-9]\|-\)*:'
-      'name': 'entity.name.function'
+      'match': '\([A-Za-z0-9]\|-\)*:'
+      'name': 'variable.parameter'
+    }
+    {
+      'match': '^\\([A-z0-9\-]*\\)'
+      'name': 'entity.name.instance'
+    }
+    {
+      'match': '^define [A-z0-9\-]*:'
+      'name': 'entity.name.instance'
     }
     {
       'begin': '#'
@@ -14,25 +25,53 @@
       'name': 'comment.line.number-sign'
     }
     {
-      'match': '^\\s*import'
+      'match': '^\\s*requires'
       'name': 'keyword.other'
     }
     {
-      'match': '\(\\s\|^-\|\{\|,)(ami|aws-az|az-member|connection-drain-time|cross_zone|description|dns|dns-hosted-zone|dns-record|health-check|health-check-interval|health-check-target|health-check-timeout|healthy-threshold|in-ports|key|listeners|load-balancers|network|out-ports|part|permissions|pmc|region|role|scale-ceiling|scale-floor|scale-instance|scale-target|scaling|section|sections|security-groups|tones|unhealthy-threshold|venues|version)(?=\\s\|,\|:)'
-      'name': 'variable.language'
-    }
-    {
-      'match': '\\b(t1\.micro|m1\.small|m3\.medium|m3\.large|m3\.xlarge|m3\.2xlarge|c3\.large|c3\.xlarge|c3\.2xlarge|c3\.4xlarge|c3\.8xlarge|g2\.2xlarge|r3\.large|r3\.xlarge|r3\.2xlarge|r3\.4xlarge|r3\.8xlarge|i2\.xlarge|i2\.2xlarge|i2\.4xlarge|i2\.8xlarge|hs1\.8xlarge)\\b'
-      'name': 'constant.language'
-    }
-    {
-      'match': '\\b(us-east-1|us-west-1|us-west-2|eu-west-1|ap-southeast-1|ap-southeast-2|ap-northeast-1|sa-east-1)\\b'
-      'name': 'constant.other'
+      'match': '^\\s*compile'
+      'name': 'keyword.other'
     }
     {
       'match': '\\b(true|false)\\b'
       'name': 'constant.language'
     }
+    {
+      'match': '\\s+\\d+(?:\\s+|$)'
+      'name': 'constant.numeric'
+    }
+    {
+      'begin': '"'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.string.begin'
+      'end': '"'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.string.end'
+      'name': 'string.quoted.double'
+      'patterns': [
+        {
+          'match': '\\\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\\\\"\'\\&])'
+          'name': 'constant.character.escape'
+        }
+      ]
+    }
+    {
+      'begin': '\''
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.string.begin'
+      'end': '\''
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.string.end'
+      'name': 'string.quoted.single'
+      'patterns': [
+        {
+          'match': '\\\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\\\\"\'\\&])'
+          'name': 'constant.character.escape'
+        }
+      ]
+    }
 ]
-
-
