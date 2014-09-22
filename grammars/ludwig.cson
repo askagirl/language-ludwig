@@ -29,7 +29,7 @@
       'name': 'keyword.other'
     }
     {
-      'match': '^\\s*compile'
+      'match': '^\\s*main'
       'name': 'keyword.other'
     }
     {
