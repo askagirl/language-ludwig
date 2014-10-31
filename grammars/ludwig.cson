@@ -8,24 +8,53 @@
 ]
 'patterns': [
     {
-      'match': '^\\s*requires'
+      'match': '^requires'
       'name': 'keyword.other'
     }
     {
-      'match': '^\\s*main:'
+      'match': '^main:'
       'name': 'keyword.other'
     }
     {
-      'match': '\([A-Za-z0-9]\|-\)*:'
+      'match': '[A-Za-z0-9\\-_]*\\s*:'
       'name': 'variable.parameter'
     }
     {
-      'match': '^\\([A-z0-9\-]*\\)'
-      'name': 'entity.name.instance'
+      'match': '\[ ,\\[{\]\(\\d+\\s*:\)'
+      'captures':
+        '1': 'name': 'variable.parameter'
     }
     {
-      'match': '^define [A-z0-9\-]*:'
+      'match': '\[ ,\\[{\]\(\\d+\)\(\[ ,\\]}\]\|$\)'
+      'captures':
+        '1': 'name': 'constant.numeric'
+    }
+    {
+      'match': '\\d+\\s*:'
+      'name': 'variable.parameter'
+    }
+
+    {
+      'begin': '^define'
+      'end': '$'
+      'name': 'keyword.other'
+      'patterns': [
+        {
+          'match': '[A-Za-z0-9_\\-]+\\s*:'
+          'name': 'entity.name.instance'
+        }
+      ]
+    }
+    {
+      'begin': '^[A-Za-z0-9_\\-]+'
+      'end': '$'
       'name': 'entity.name.instance'
+      'patterns': [
+        {
+          'match': '[A-Za-z0-9_\\-]+\\s*:'
+          'name': 'variable.parameter'
+        }
+      ]
     }
     {
       'begin': '#'
@@ -36,10 +65,7 @@
       'match': '\\b(true|false)\\b'
       'name': 'constant.language'
     }
-    {
-      'match': '\\s+\\d+(?:\\s+|$)'
-      'name': 'constant.numeric'
-    }
+
     {
       'begin': '"'
       'beginCaptures':
@@ -75,3 +101,4 @@
       ]
     }
 ]
+
