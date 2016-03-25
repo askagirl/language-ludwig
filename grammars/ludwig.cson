@@ -1,85 +1,49 @@
-'scopeName': 'source.clef'
 'name': 'Ludwig'
+'scopeName': 'source.ludwig'
 'fileTypes': [
-  'clef',
-  'lu',
-  'lw',
-  'ludwig'
+  'lw'
 ]
 'patterns': [
     {
-      'match': '^requires'
-      'name': 'keyword.other'
+      'match': '^(requires|exports)'
+      'name': 'keyword.other.ludwig'
     }
     {
-      'match': '^main:'
-      'name': 'keyword.other'
+      'match': '\\b(type|fun|as|with|operator|infixr|infixl|prefix|language)\\b'
+      'name': 'keyword.other.ludwig'
     }
     {
-      'match': '[A-Za-z0-9\\-_]*\\s*:'
-      'name': 'variable.parameter'
+      'match': '\\b(case|else|elif|if|module|then|of)\\b'
+      'name': 'keyword.control.ludwig'
     }
     {
-      'match': '\[ ,\\[{\]\(\\d+\\s*:\)'
+      'match': '\\b([[:upper:]]+(?:[[:word:]]|_|-)*(?:\\.[[:upper:]]+(?:[[:word:]]|\\s_|-)*)*)\\b'
+      'name': 'support.class.ludwig'
+    }
+    {
+      'match': '^([[:lower:]]+(?:[[:word:]]|_|-)*):[[:space:]]*'
       'captures':
-        '1': 'name': 'variable.parameter'
-    }
-    {
-      'match': '\[ ,\\[{\]\(\\d+\)\(\[ ,\\]}\]\|$\)'
-      'captures':
-        '1': 'name': 'constant.numeric'
-    }
-    {
-      'match': '\\d+\\s*:'
-      'name': 'variable.parameter'
-    }
-
-    {
-      'begin': '^define'
-      'end': '$'
-      'name': 'keyword.other'
-      'patterns': [
-        {
-          'match': '[A-Za-z0-9_\\-]+\\s*:'
-          'name': 'entity.name.instance'
-        }
-      ]
-    }
-    {
-      'begin': '^[A-Za-z0-9_\\-]+'
-      'end': '$'
-      'name': 'entity.name.instance'
-      'patterns': [
-        {
-          'match': '[A-Za-z0-9_\\-]+\\s*:'
-          'name': 'variable.parameter'
-        }
-      ]
+        '1': 'name': 'variable.ludwig'
     }
     {
       'begin': '#'
       'end': '\\n'
-      'name': 'comment.line.number-sign'
+      'name': 'comment.line.number-sign.ludwig'
     }
-    {
-      'match': '\\b(true|false)\\b'
-      'name': 'constant.language'
-    }
-
     {
       'begin': '"'
       'beginCaptures':
         '0':
-          'name': 'punctuation.definition.string.begin'
+          'name': 'punctuation.definition.string.begin.ludwig'
       'end': '"'
       'endCaptures':
         '0':
-          'name': 'punctuation.definition.string.end'
-      'name': 'string.quoted.double'
+          'name': 'punctuation.definition.string.end.ludwig'
+      'name': 'string.quoted.double.ludwig'
       'patterns': [
         {
           'match': '\\\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\\\\"\'\\&])'
-          'name': 'constant.character.escape'
+          'name': 'constant.character.escape.ludwig'
         }
       ]
     }
@@ -87,18 +51,17 @@
       'begin': '\''
       'beginCaptures':
         '0':
-          'name': 'punctuation.definition.string.begin'
+          'name': 'punctuation.definition.string.begin.ludwig'
       'end': '\''
       'endCaptures':
         '0':
-          'name': 'punctuation.definition.string.end'
-      'name': 'string.quoted.single'
+          'name': 'punctuation.definition.string.end.ludwig'
+      'name': 'string.quoted.single.ludwig'
       'patterns': [
         {
           'match': '\\\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\\\\"\'\\&])'
-          'name': 'constant.character.escape'
+          'name': 'constant.character.escape.ludwig'
         }
       ]
     }
 ]
-

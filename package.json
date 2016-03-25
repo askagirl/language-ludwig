@@ -1,18 +1,15 @@
 {
   "version": "0.0.1",
-  "name": "ludwig-syntax",
+  "name": "language-ludwig",
   "description": "Ludwig Syntax Highlighting for Atom",
   "license": "AllRightsReserved",
   "engines": {
     "atom": "*",
     "node": "*"
   },
-  "homepage": "https://github.com/LuminalHQ/ludwig",
+  "homepage": "https://github.com/LuminalHQ/language-ludwig",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LuminalHQ/ludwig.git"
-  },
-  "bugs": {
-    "url": "https://github.com/LuminalHQ/ludwig/issues"
+    "url": "https://github.com/LuminalHQ/language-ludwig.git"
   }
 }
