@@ -45,9 +45,9 @@ describe 'Ludwig grammar', ->
     {tokens} = grammar.tokenizeLine('x: 1')
     expect(tokens[0]).toEqual value: 'x', scopes: ['source.ludwig', 'variable.ludwig']
 
-  it 'tokenizes exports', ->
-    tokens = grammar.tokenizeLines('exports\n    type Foo\n    bar')
-    expect(tokens[0][0]).toEqual value: 'exports', scopes: ['source.ludwig', 'keyword.other.ludwig']
+  it 'tokenizes export', ->
+    tokens = grammar.tokenizeLines('export\n    type Foo\n    bar')
+    expect(tokens[0][0]).toEqual value: 'export', scopes: ['source.ludwig', 'keyword.other.ludwig']
     expect(tokens[1][1]).toEqual value: 'type', scopes: ['source.ludwig', 'keyword.other.ludwig']
     expect(tokens[1][3]).toEqual value: 'Foo', scopes: ['source.ludwig', 'support.class.ludwig']
 
