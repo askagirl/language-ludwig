@@ -9,7 +9,7 @@
       'name': 'keyword.other.ludwig'
     }
     {
-      'match': '\\b(type|fun|as|with|operator|infixr|infixl|prefix|language)\\b'
+      'match': '\\b(type|fun|as|with|operator|infixr|infixl|prefix|language|let)\\b'
       'name': 'keyword.other.ludwig'
     }
     {
@@ -21,7 +21,7 @@
       'name': 'support.class.ludwig'
     }
     {
-      'match': '^([[:lower:]]+(?:[[:word:]]|_|-)*):[[:space:]]*'
+      'match': '\\b([[:lower:]]+(?:[[:word:]]|_|-)*):[[:space:]]*'
       'captures':
         '1': 'name': 'variable.ludwig'
     }

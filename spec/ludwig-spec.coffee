@@ -65,3 +65,12 @@ describe 'Ludwig grammar', ->
     {tokens} = grammar.tokenizeLine('operator ! prefix: not')
     expect(tokens[0]).toEqual value: 'operator', scopes: ['source.ludwig', 'keyword.other.ludwig']
     expect(tokens[2]).toEqual value: 'prefix', scopes: ['source.ludwig', 'keyword.other.ludwig']
+
+  it 'tokenizes let bindings', ->
+    tokens = grammar.tokenizeLines("foo:\n  let Int add-some(Int x): x + 2\n  let Int y: 1\n  1 + add-some(y)")
+    expect(tokens[0][0]).toEqual value: 'foo', scopes: ['source.ludwig', 'variable.ludwig']
+    expect(tokens[1][1]).toEqual value: 'let', scopes: ['source.ludwig', 'keyword.other.ludwig']
+    expect(tokens[1][3]).toEqual value: 'Int', scopes: ['source.ludwig', 'support.class.ludwig']
+    expect(tokens[2][1]).toEqual value: 'let', scopes: ['source.ludwig', 'keyword.other.ludwig']
+    expect(tokens[2][3]).toEqual value: 'Int', scopes: ['source.ludwig', 'support.class.ludwig']
+    expect(tokens[2][5]).toEqual value: 'y', scopes: ['source.ludwig', 'variable.ludwig']
