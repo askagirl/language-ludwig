@@ -74,3 +74,11 @@ describe 'Ludwig grammar', ->
     expect(tokens[2][1]).toEqual value: 'let', scopes: ['source.ludwig', 'keyword.other.ludwig']
     expect(tokens[2][3]).toEqual value: 'Int', scopes: ['source.ludwig', 'support.class.ludwig']
     expect(tokens[2][5]).toEqual value: 'y', scopes: ['source.ludwig', 'variable.ludwig']
+
+  it 'tokenizes the composition keyword', ->
+    {tokens} = grammar.tokenizeLine('composition')
+    expect(tokens[0]).toEqual value: "composition", scopes: ['source.ludwig', 'keyword.other.ludwig']
+
+  it 'tokenizes the validate keyword', ->
+    {tokens} = grammar.tokenizeLine('validate foo')
+    expect(tokens[0]).toEqual value: "validate", scopes: ['source.ludwig', 'keyword.other.ludwig']
