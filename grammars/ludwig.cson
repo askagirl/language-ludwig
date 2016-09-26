@@ -5,7 +5,7 @@
 ]
 'patterns': [
     {
-      'match': '^(requires|import|export|composition|validate)'
+      'match': '^(requires|import|export|composition|validate)\\b'
       'name': 'keyword.other.ludwig'
     }
     {
