@@ -82,3 +82,7 @@ describe 'Ludwig grammar', ->
   it 'tokenizes the validate keyword', ->
     {tokens} = grammar.tokenizeLine('validate foo')
     expect(tokens[0]).toEqual value: "validate", scopes: ['source.ludwig', 'keyword.other.ludwig']
+
+  it 'does not highlight keywords that prefix other tokens', ->
+    {tokens} = grammar.tokenizeLine('validated: True')
+    expect(tokens[0]).toEqual value: 'validated', scopes: ['source.ludwig', 'variable.ludwig']
